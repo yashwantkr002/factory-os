@@ -1,0 +1,21 @@
+enum RoleType {
+  ADMIN
+  PURCHASE_MANAGER
+  INVENTORY_MANAGER
+  PRODUCTION_MANAGER
+}
+
+model User {
+  id           String   @id @default(uuid())
+
+  name         String
+  email        String   @unique
+  passwordHash String
+
+  role         RoleType @default(INVENTORY_MANAGER)
+
+  isActive     Boolean  @default(true)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

@@ -1,0 +1,54 @@
+# Node
+node_modules/
+npm-debug.log*
+.yarn-integrity
+.pnpm-debug.log
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# Build output
+dist/
+build/
+coverage/
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Backend specific
+/backend/node_modules/
+/backend/dist/
+/backend/.env
+/backend/prisma/generated/
+
+# Frontend specific
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env
+
+# Prisma
+/prisma/migrations/
+/prisma/.env
+
+# Misc
+*.local
+*.log
+
+# Windows
+*.exe
+*.dll
