@@ -1,4 +1,5 @@
 import prisma from "../../database/prisma.ts";
+import type { RegisterUserInput , LoginUserInput  } from "./auth.types.js";
 import bcrypt from "bcrypt";
 export  class AuthRepository {
   async findUserByEmail(email: string) {
@@ -9,15 +10,16 @@ export  class AuthRepository {
     });
   }
 
-  async createUser(data: {
-    name: string;
-    email: string;
-    passwordHash: string;
-  }) {
+  async createUser(data: Omit<RegisterUserInput,"password">,passwordHash: string) {
     return prisma.user.create({
-      data,
+      data:{
+        name: data.name,
+        email: data.email,
+        passwordHash,
+      }
     });
   }
+
 
   async findUserById(id: string) {
   return prisma.user.findUnique({

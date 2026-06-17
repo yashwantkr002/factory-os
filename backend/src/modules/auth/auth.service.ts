@@ -18,11 +18,13 @@ export class AuthService {
 
     const passwordHash = await bcrypt.hash(data.password, 10);
 
-    const user = await this.authRepository.createUser({
-      name: data.name,
-      email: data.email,
-      passwordHash,
-    });
+    const user = await this.authRepository.createUser(
+      {
+        name: data.name,
+        email: data.email,
+      },
+      passwordHash
+    );
 
     const { passwordHash: _, ...safeUser } = user;
 
